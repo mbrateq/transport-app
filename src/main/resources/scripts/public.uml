@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>a1984164-b33c-4ae2-8940-934e29f96e1d.SCHEMA:postgres.public</OriginalElement>
+  <nodes>
+    <node x="-54.91987179487177" y="261.5">a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.users_roles</node>
+    <node x="473.3621794871795" y="22.0">a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.lines</node>
+    <node x="366.7051282051282" y="175.0">a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.courses</node>
+    <node x="187.95512820512823" y="175.0">a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.vehicles</node>
+    <node x="216.70512820512823" y="350.0">a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.trips</node>
+    <node x="413.73717948717956" y="363.5">a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.stops_courses</node>
+    <node x="-162.16987179487177" y="23.0">a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.roles</node>
+    <node x="58.95512820512823" y="-8.0">a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.users</node>
+    <node x="572.8621794871794" y="363.5">a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.stops_lines</node>
+    <node x="505.7051282051282" y="175.0">a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.stops</node>
+    <node x="261.5" y="527.0">a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.users_trips</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.stops_courses" target="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.stops" relationship="REFERENCES">
+      <point x="33.24999999999994" y="-50.0" />
+      <point x="513.4871794871794" y="303.0" />
+      <point x="586.2051282051282" y="303.0" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.users_trips" target="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.trips" relationship="REFERENCES">
+      <point x="-27.75" y="-39.0" />
+      <point x="289.25" y="501.0" />
+      <point x="281.20512820512823" y="501.0" />
+      <point x="0.0" y="72.5" />
+    </edge>
+    <edge source="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.trips" target="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.courses" relationship="REFERENCES">
+      <point x="32.25" y="-72.5" />
+      <point x="313.45512820512823" y="303.0" />
+      <point x="426.2051282051282" y="303.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.courses" target="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.lines" relationship="REFERENCES">
+      <point x="0.0" y="-50.5" />
+      <point x="426.2051282051282" y="149.0" />
+      <point x="548.8621794871794" y="149.0" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.vehicles" target="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.users" relationship="REFERENCES">
+      <point x="-2.8421709430404007E-14" y="-50.5" />
+      <point x="248.9551282051282" y="149.0" />
+      <point x="136.95512820512823" y="149.0" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.users_roles" target="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.users" relationship="REFERENCES">
+      <point x="28.25" y="-39.0" />
+      <point x="29.830128205128233" y="149.0" />
+      <point x="136.95512820512823" y="149.0" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.users_roles" target="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.roles" relationship="REFERENCES">
+      <point x="-28.25" y="-39.0" />
+      <point x="-26.669871794871767" y="215.25" />
+      <point x="-82.66987179487177" y="215.25" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.stops_courses" target="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.courses" relationship="REFERENCES">
+      <point x="-33.25000000000006" y="-50.0" />
+      <point x="446.9871794871795" y="303.0" />
+      <point x="426.2051282051282" y="303.0" />
+      <point x="0.0" y="50.5" />
+    </edge>
+    <edge source="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.stops_lines" target="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.stops" relationship="REFERENCES">
+      <point x="-28.0" y="-39.0" />
+      <point x="600.8621794871794" y="303.0" />
+      <point x="586.2051282051282" y="303.0" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.users_trips" target="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.users" relationship="REFERENCES">
+      <point x="27.75" y="-39.0" />
+      <point x="344.75" y="501.0" />
+      <point x="356.2051282051282" y="501.0" />
+      <point x="356.2051282051282" y="149.0" />
+      <point x="136.95512820512823" y="149.0" />
+      <point x="0.0" y="61.5" />
+    </edge>
+    <edge source="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.stops_lines" target="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.lines" relationship="REFERENCES">
+      <point x="28.0" y="-39.0" />
+      <point x="656.8621794871794" y="303.0" />
+      <point x="677.2051282051282" y="303.0" />
+      <point x="677.2051282051282" y="149.0" />
+      <point x="548.8621794871794" y="149.0" />
+      <point x="0.0" y="39.5" />
+    </edge>
+    <edge source="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.trips" target="a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.vehicles" relationship="REFERENCES">
+      <point x="-32.25" y="-72.5" />
+      <point x="0.0" y="50.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="349.0" y="302.5" />
+  <SelectedNodes>
+    <node>a1984164-b33c-4ae2-8940-934e29f96e1d.TABLE:postgres.public.users</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+

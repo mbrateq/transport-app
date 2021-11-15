@@ -9,3 +9,5 @@ Aplikacja uruchamiana jest poprzez wykonanie z lini komend w podanej ścieżce p
 pod adresem `http://localhost:8080/transport-app/api/v1/test`. Jeżeli aplikacja została uruchomiona poprawnie, w oknie przeglądarki powinien być widoczny tekst `Hello from transport-api`
 ## Skrypt bazodanowy
 Skrypt inicjalizujący struktury bazodanowe _init.sql_ znajduje się w ścieżce `/src/main/resources/scripts/`.
+##Diagram bazy danych
+Diagram modelu danych w uml znajduje się w pliku _public.uml_ w ścieżce `/src/main/resources/scripts/`.
