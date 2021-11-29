@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -22,8 +24,9 @@ public class Course implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long courseId;
 
-    @Column(name = "line_id", nullable = false)
-    private Long lineId;
+    @ManyToOne
+    @JoinColumn(name = "line_id", nullable = false, insertable = false, updatable = false)
+    private Line line;
 
     @Column(name = "ordinal", nullable = false)
     private Long ordinal;

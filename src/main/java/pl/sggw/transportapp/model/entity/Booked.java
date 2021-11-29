@@ -29,6 +29,9 @@ public class Booked implements Serializable {
     @Column(name = "vehicle_id")
     private Long vehicleId;
 
+    @Column(name = "trip_id")
+    private Long tripId;
+
     @Column(name = "start_time", nullable = false)
     private Date startTime;
 
