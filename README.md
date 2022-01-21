@@ -23,3 +23,10 @@ Po skuteczntm podłączeniu do bazy można wykonywać na niej testowe skrypty z 
 Adresy:
 1. `http://localhost:8080/transport-app/v3/api-docs` - kolekcja requestów w formacie json
 2. `http://localhost:8080/transport-app/swagger-ui/index.html?configUrl=/transport-app/v3/api-docs/swagger-config#/` - interfejs swaggerUI 
+
+## Docker z bazą danych
+`docker run --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=dupa -d postgres`
+
+## Budowa obrazu
+w ścieżce `./src/main/resources`
+`docker build -t teliamb/transport-app . `

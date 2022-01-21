@@ -52,18 +52,18 @@ public class TripsController implements TripsOperations {
     @PostMapping("/trips/{tripId}/{userId}")
     @Override
     public ResponseEntity<UserTrip> bookTrip(@PathVariable long tripId, @PathVariable long userId) {
-        return ResponseEntity.ok(null);
+        return ResponseEntity.ok(tripService.bookTrip(tripId, userId));
     }
 
     @GetMapping("/trips/{userId}")
     @Override
-    public ResponseEntity<List<UserTrip>> listBookedTripsByUser(long userId) {
+    public ResponseEntity<List<UserTrip>> listBookedTripsByUser(@PathVariable long userId) {
         return ResponseEntity.ok(tripService.listBookedTripsByUser(userId));
     }
 
     @DeleteMapping("/trips/{tripId}/{userId}")
     @Override
-    public ResponseEntity<List<UserTrip>> deleteBooking(long bookingId) {
-        return ResponseEntity.ok(tripService.deleteBooking(bookingId));
+    public ResponseEntity<List<UserTrip>> deleteBooking(@PathVariable long tripId, @PathVariable long userId) {
+        return ResponseEntity.ok(tripService.deleteBooking(tripId, userId));
     }
 }

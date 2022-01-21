@@ -32,5 +32,5 @@ public interface TripsOperations {
   ResponseEntity<List<UserTrip>> listBookedTripsByUser(long userId);
 
   @Operation(summary = "Odwołanie Rezerwacji")
-  ResponseEntity<List<UserTrip>> deleteBooking(long bookingId);
+  ResponseEntity<List<UserTrip>> deleteBooking(long tripId, long userId);
 }
