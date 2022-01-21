@@ -34,7 +34,7 @@ public class Trip implements Serializable {
     private Vehicle vehicle;
 
     @Column(name = "occupied", nullable = false)
-    private Boolean occupied;
+    private Long occupied;
 
     @Column(name = "status", nullable = false)
     private String status;

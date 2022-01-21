@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface TripsRepository extends JpaRepository<Trip, Long>, JpaSpecificationExecutor<Trip> {
 
-    List<Trip> findByCourse(long courseId);
+    List<Trip> findByCourseAndStatus(long courseId,String status);
 
 }
