@@ -10,6 +10,8 @@ DROP TABLE IF EXISTS VEHICLES CASCADE;
 DROP TABLE IF EXISTS USERS CASCADE;
 DROP TABLE IF EXISTS LINES CASCADE;
 DROP TABLE IF EXISTS COURSES CASCADE;
+DROP TABLE IF EXISTS VERSION_TEST CASCADE;
+
 
 CREATE TABLE STOPS
 (
@@ -129,6 +131,11 @@ CREATE TABLE BOOKED
     CONSTRAINT BOOKED_FK_TRIP FOREIGN KEY (TRIP_ID) REFERENCES TRIPS (TRIP_ID)
 );
 
+CREATE TABLE VERSION_TEST
+(
+    VER BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY,
+    UPDATED       TIMESTAMP NOT NULL
+);
 
 insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user1', true);
 insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user2', true);
@@ -325,8 +332,7 @@ update trips set occupied = 4 where trip_id = 7;
 update trips set occupied = 4 where trip_id = 8;
 update trips set occupied = 5 where trip_id = 9;
 
-
-
-
+insert into public.version_test (ver,updated)
+values (DEFAULT,current_timestamp);
 
 
