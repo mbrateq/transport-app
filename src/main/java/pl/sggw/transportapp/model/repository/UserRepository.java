@@ -5,7 +5,12 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 import pl.sggw.transportapp.model.entity.User;
 
+import java.util.Optional;
+
 @Repository
-public interface UsersRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByUsername(String username);
+
+    void deleteAllByUserId(long userId);
 
 }

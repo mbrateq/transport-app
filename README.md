@@ -30,3 +30,7 @@ Adresy:
 ## Budowa obrazu
 w ścieżce `./src/main/resources`
 `docker build -t teliamb/transport-app . `
+
+##
+Add security
+Add user controller

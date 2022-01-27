@@ -1,69 +1,62 @@
 package pl.sggw.transportapp.web.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pl.sggw.transportapp.model.entity.Course;
-import pl.sggw.transportapp.model.entity.Line;
 import pl.sggw.transportapp.model.entity.Trip;
 import pl.sggw.transportapp.model.entity.UserTrip;
-import pl.sggw.transportapp.service.TripService;
 import pl.sggw.transportapp.service.TripServiceImpl;
-import pl.sggw.transportapp.web.controller.api.TripsOperations;
 
-import java.util.List;
+import javax.validation.constraints.NotEmpty;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/v1")
-public class TripsController implements TripsOperations {
+@RequestMapping("api/v1/trips")
+public class TripsController extends ControllerAbstract {
 
-    private final TripServiceImpl tripService;
+  private final TripServiceImpl tripService;
 
-    @GetMapping("/trips")
-    @Override
-    public ResponseEntity<List<Trip>> listAllTrips() {
-        return ResponseEntity.ok(tripService.listAllTrips());
-    }
+  @GetMapping("/")
+  public Page<Trip> listAllTrips(
+      @RequestParam(name = "per-page", defaultValue = "20", required = false) int pageSize,
+      @RequestParam(name = "page", defaultValue = "1", required = false) int page) {
+    return tripService.listAllTrips(preparePageRequest(page, pageSize));
+  }
 
-    @GetMapping("/trips/{courseId}")
-    @Override
-    public ResponseEntity<List<Trip>> listAllActiveTripsByCourse(@PathVariable long courseId) {
-        return ResponseEntity.ok(tripService.listAllActiveTripsByCourse(courseId));
-    }
+  @GetMapping("/{courseId}")
+  public Page<Trip> listAllActiveTripsByCourse(
+      @NotEmpty @PathVariable(name = "courseId") long courseId,
+      @RequestParam(name = "per-page", defaultValue = "20", required = false) int pageSize,
+      @RequestParam(name = "page", defaultValue = "1", required = false) int page) {
+    return tripService.listAllActiveTripsByCourse(courseId, preparePageRequest(page, pageSize));
+  }
 
-    @GetMapping("/courses/{lineId}")
-    @Override
-    public ResponseEntity<List<Course>> listCoursesByLine(@PathVariable long lineId) {
-        return ResponseEntity.ok(tripService.listCoursesByLine(lineId));
-    }
+  @GetMapping("/{userId}")
+  public Page<UserTrip> listBookedTripsByUser(
+      @NotEmpty @PathVariable(name = "userId") long userId,
+      @RequestParam(name = "per-page", defaultValue = "20", required = false) int pageSize,
+      @RequestParam(name = "page", defaultValue = "1", required = false) int page) {
+    return tripService.listBookedTripsByUser(userId, preparePageRequest(page, pageSize));
+  }
 
-    @GetMapping("/lines")
-    @Override
-    public ResponseEntity<List<Line>> listAllLines() {
-        return ResponseEntity.ok(tripService.listAllLines());
-    }
+  @PostMapping("/{tripId}/{userId}")
+  public ResponseEntity<UserTrip> bookTrip(
+      @NotEmpty @PathVariable(name = "tripId") long tripId,
+      @NotEmpty @PathVariable(name = "userId") long userId) {
+    return ResponseEntity.ok(tripService.bookTrip(tripId, userId));
+  }
 
-    @PostMapping("/trips/{tripId}/{userId}")
-    @Override
-    public ResponseEntity<UserTrip> bookTrip(@PathVariable long tripId, @PathVariable long userId) {
-        return ResponseEntity.ok(tripService.bookTrip(tripId, userId));
-    }
-
-    @GetMapping("/trips/{userId}")
-    @Override
-    public ResponseEntity<List<UserTrip>> listBookedTripsByUser(@PathVariable long userId) {
-        return ResponseEntity.ok(tripService.listBookedTripsByUser(userId));
-    }
-
-    @DeleteMapping("/trips/{tripId}/{userId}")
-    @Override
-    public ResponseEntity<List<UserTrip>> deleteBooking(@PathVariable long tripId, @PathVariable long userId) {
-        return ResponseEntity.ok(tripService.deleteBooking(tripId, userId));
-    }
+  @DeleteMapping("/{tripId}/{userId}")
+  public boolean deleteBooking(
+      @NotEmpty @PathVariable(name = "tripId") long tripId,
+      @NotEmpty @PathVariable(name = "userId") long userId) {
+    return tripService.deleteBooking(tripId, userId);
+  }
 }

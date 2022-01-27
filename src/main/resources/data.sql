@@ -137,27 +137,27 @@ CREATE TABLE VERSION_TEST
     UPDATED       TIMESTAMP NOT NULL
 );
 
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user1', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user2', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user3', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user4', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user5', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user6', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user7', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user8', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user9', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user10', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user11', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user12', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user13', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user14', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user15', true);
-insert into public.users (user_id, password, username, enabled) values (DEFAULT, 'secret', 'user16', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user1', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user2', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user3', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user4', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user5', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user6', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user7', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user8', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user9', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user10', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user11', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user12', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user13', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user14', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user15', true);
+insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user16', true);
 
 
-insert into public.roles (role_id, role_name) values (DEFAULT, 'ADMIN');
-insert into public.roles (role_id, role_name) values (DEFAULT, 'USER');
-insert into public.roles (role_id, role_name) values (DEFAULT, 'DRIVER');
+insert into public.roles (role_id, role_name) values (DEFAULT, 'ROLE_ADMIN');
+insert into public.roles (role_id, role_name) values (DEFAULT, 'ROLE_USER');
+insert into public.roles (role_id, role_name) values (DEFAULT, 'ROLE_RIVER');
 
 insert into public.users_roles (user_roles_id, user_id, role_id) values (DEFAULT, 1, 1);
 insert into public.users_roles (user_roles_id, user_id, role_id) values (DEFAULT, 2, 2);

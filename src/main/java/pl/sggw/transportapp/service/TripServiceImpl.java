@@ -1,6 +1,8 @@
 package pl.sggw.transportapp.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.sggw.transportapp.model.entity.Course;
 import pl.sggw.transportapp.model.entity.Line;
@@ -22,25 +24,14 @@ import static java.lang.String.format;
 public class TripServiceImpl implements TripService {
 
   private final TripsRepository tripsRepository;
-  private final LinesRepository linesRepository;
-  private final CoursesRepository coursesRepository;
   private final UsersTripsRepository usersTripsRepository;
-  private final BookedRepository bookedRepository;
 
-  public List<Trip> listAllTrips() {
-    return tripsRepository.findAll();
+  public Page<Trip> listAllTrips(Pageable pageable) {
+    return tripsRepository.findAll(pageable);
   }
 
-  public List<Trip> listAllActiveTripsByCourse(long courseId) {
-    return tripsRepository.findByCourseAndStatus(courseId, "ACTIVE");
-  }
-
-  public List<Course> listCoursesByLine(long lineId) {
-    return coursesRepository.findByLine(lineId);
-  }
-
-  public List<Line> listAllLines() {
-    return linesRepository.findAll();
+  public Page<Trip> listAllActiveTripsByCourse(long courseId, Pageable pageable) {
+    return tripsRepository.findByCourseAndStatus(courseId, "ACTIVE", pageable);
   }
 
   public UserTrip bookTrip(long tripId, long userId) {
@@ -69,11 +60,11 @@ public class TripServiceImpl implements TripService {
     }
   }
 
-  public List<UserTrip> listBookedTripsByUser(long userId) {
-    return usersTripsRepository.findByUserId(userId);
+  public Page<UserTrip> listBookedTripsByUser(long userId, Pageable pageable) {
+    return usersTripsRepository.findByUserId(userId, pageable);
   }
 
-  public List<UserTrip> deleteBooking(long tripId, long userId) {
+  public boolean deleteBooking(long tripId, long userId) {
     UserTrip userTrip =
         usersTripsRepository
             .findByUserIdAndTripId(userId, tripId)
@@ -89,6 +80,6 @@ public class TripServiceImpl implements TripService {
     trip.setOccupied(booked--);
     tripsRepository.save(trip);
     usersTripsRepository.delete(userTrip);
-    return usersTripsRepository.findByUserId(userId);
+    return true;
   }
 }
