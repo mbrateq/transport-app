@@ -136,7 +136,7 @@ CREATE TABLE VERSION_TEST
     VER BIGINT NOT NULL GENERATED ALWAYS AS IDENTITY,
     UPDATED       TIMESTAMP NOT NULL
 );
-
+--pass:secret
 insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user1', true);
 insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user2', true);
 insert into public.users (user_id, password, username, enabled) values (DEFAULT, '$2a$10$lTBRa6LF1UR5yoL7K7bIzOkWdn/BFB4h7hxy97CCcc/sKyHfDMLPS', 'user3', true);
@@ -157,7 +157,7 @@ insert into public.users (user_id, password, username, enabled) values (DEFAULT,
 
 insert into public.roles (role_id, role_name) values (DEFAULT, 'ROLE_ADMIN');
 insert into public.roles (role_id, role_name) values (DEFAULT, 'ROLE_USER');
-insert into public.roles (role_id, role_name) values (DEFAULT, 'ROLE_RIVER');
+insert into public.roles (role_id, role_name) values (DEFAULT, 'ROLE_DRIVER');
 
 insert into public.users_roles (user_roles_id, user_id, role_id) values (DEFAULT, 1, 1);
 insert into public.users_roles (user_roles_id, user_id, role_id) values (DEFAULT, 2, 2);
@@ -181,8 +181,8 @@ insert into public.stops (stop_id, stop_name) values (DEFAULT, 'LOTNISKO CHOPINA
 insert into public.stops (stop_id, stop_name) values (DEFAULT, 'PORT LOTNICZY MODLIN');
 insert into public.stops (stop_id, stop_name) values (DEFAULT, 'WARSZAWA CENTRALNA');
 insert into public.stops (stop_id, stop_name) values (DEFAULT, 'METRO MŁOCINY');
-insert into public.stops (stop_id, stop_name) values (DEFAULT, 'METRO KABATY');
 insert into public.stops (stop_id, stop_name) values (DEFAULT, 'METRO WILANOWSKA');
+insert into public.stops (stop_id, stop_name) values (DEFAULT, 'METRO KABATY');
 insert into public.stops (stop_id, stop_name) values (DEFAULT, 'PKP PIASECZNO');
 insert into public.stops (stop_id, stop_name) values (DEFAULT, 'WARSZAWA WSCHODNIA');
 insert into public.stops (stop_id, stop_name) values (DEFAULT, 'WARSZAWA ZACHODNIA');
@@ -225,9 +225,9 @@ insert into public.courses (course_id, line_id, ordinal) values (DEFAULT, 5, 1);
 insert into public.courses (course_id, line_id, ordinal) values (DEFAULT, 5, 2);
 insert into public.courses (course_id, line_id, ordinal) values (DEFAULT, 6, 0);
 
-insert into public.stops_courses (stops_courses_id, course_id, stop_id, estimated) values (DEFAULT, 1, 5, '08:00:00');
-insert into public.stops_courses (stops_courses_id, course_id, stop_id, estimated) values (DEFAULT, 1, 4, '08:35:00');
-insert into public.stops_courses (stops_courses_id, course_id, stop_id, estimated) values (DEFAULT, 1, 6, '09:00:00');
+insert into public.stops_courses (stops_courses_id, course_id, stop_id, estimated) values (DEFAULT, 1, 5, '08:35:00');
+insert into public.stops_courses (stops_courses_id, course_id, stop_id, estimated) values (DEFAULT, 1, 4, '09:00:00');
+insert into public.stops_courses (stops_courses_id, course_id, stop_id, estimated) values (DEFAULT, 1, 6, '08:00:00');
 insert into public.stops_courses (stops_courses_id, course_id, stop_id, estimated) values (DEFAULT, 2, 5, '10:00:00');
 insert into public.stops_courses (stops_courses_id, course_id, stop_id, estimated) values (DEFAULT, 2, 4, '10:30:00');
 insert into public.stops_courses (stops_courses_id, course_id, stop_id, estimated) values (DEFAULT, 2, 6, '11:00:00');

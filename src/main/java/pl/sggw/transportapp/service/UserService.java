@@ -1,9 +1,11 @@
 package pl.sggw.transportapp.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import pl.sggw.transportapp.model.CreateUserDto;
 import pl.sggw.transportapp.model.entity.User;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
@@ -14,7 +16,7 @@ public interface UserService {
 
     User setStatus(long userId, boolean status);
 
-    List<User> listUsers();
+    Page<User> listUsers(Pageable pageable);
 
     boolean deleteUser(long userId);
 

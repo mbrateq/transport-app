@@ -9,26 +9,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sggw.transportapp.model.entity.Course;
 import pl.sggw.transportapp.service.CourseServiceImpl;
+import pl.sggw.transportapp.view.CourseView;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/courses")
-public class CoursesController extends ControllerAbstract {
+public class CoursesController extends ControllerAbstract implements CoursesOperations {
 
   private final CourseServiceImpl courseService;
 
   @GetMapping("/{lineId}")
-  public Page<Course> listCoursesByLine(
-      @NotEmpty @PathVariable(name = "lineId") long lineId,
+  public Page<CourseView> listCoursesByLine(
+          @NotNull @PathVariable(name = "lineId") long courseId,
       @RequestParam(name = "per-page", defaultValue = "20", required = false) int pageSize,
       @RequestParam(name = "page", defaultValue = "1", required = false) int page) {
-    return courseService.listCoursesByLine(lineId, preparePageRequest(page, pageSize));
+    return courseService.listCoursesByLine(1, preparePageRequest(page, pageSize));
   }
 
+  @Override
   @GetMapping("/")
-  public Page<Course> listAllCourses(
+  public Page<CourseView> listAllCourses(
       @RequestParam(name = "per-page", defaultValue = "20", required = false) int pageSize,
       @RequestParam(name = "page", defaultValue = "1", required = false) int page) {
     return courseService.listAllCourses(preparePageRequest(page, pageSize));

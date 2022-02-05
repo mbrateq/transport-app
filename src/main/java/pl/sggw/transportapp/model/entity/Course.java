@@ -25,7 +25,7 @@ public class Course implements Serializable {
     private Long courseId;
 
     @ManyToOne
-    @JoinColumn(name = "line_id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "line_id", nullable = false)
     private Line line;
 
     @Column(name = "ordinal", nullable = false)

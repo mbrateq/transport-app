@@ -25,13 +25,15 @@ public class TripServiceImpl implements TripService {
 
   private final TripsRepository tripsRepository;
   private final UsersTripsRepository usersTripsRepository;
+  private final CoursesRepository coursesRepository;
 
   public Page<Trip> listAllTrips(Pageable pageable) {
     return tripsRepository.findAll(pageable);
   }
 
   public Page<Trip> listAllActiveTripsByCourse(long courseId, Pageable pageable) {
-    return tripsRepository.findByCourseAndStatus(courseId, "ACTIVE", pageable);
+    final Course course = coursesRepository.findById(courseId).get();
+    return tripsRepository.findByCourseAndStatus(course, "ACTIVE", pageable);
   }
 
   public UserTrip bookTrip(long tripId, long userId) {
@@ -46,7 +48,7 @@ public class TripServiceImpl implements TripService {
         tripsRepository
             .findById(tripId)
             .orElseThrow(() -> new ValidationException(format("Trip %s does not exist.", tripId)));
-    if (trip.getVehicle().getCapacity() < trip.getOccupied()) {
+    if (trip.getVehicle().getCapacity() > trip.getOccupied()) {
       long occupied = trip.getOccupied();
       trip.setOccupied(occupied++);
       tripsRepository.save(trip);

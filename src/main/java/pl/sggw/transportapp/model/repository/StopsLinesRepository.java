@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface StopsLinesRepository extends PagingAndSortingRepository<StopLine, Long> {
   List<StopLine> findByLineIdOrderByOrdinalAsc(long lineId);
+  List<StopLine> findByStopId(long stopId);
 }

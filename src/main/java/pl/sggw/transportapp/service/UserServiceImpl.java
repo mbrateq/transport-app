@@ -1,6 +1,8 @@
 package pl.sggw.transportapp.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.sggw.transportapp.model.CreateUserDto;
 import pl.sggw.transportapp.model.entity.User;
@@ -10,7 +12,6 @@ import pl.sggw.transportapp.security.PasswordEncoderService;
 import javax.validation.ValidationException;
 import java.nio.CharBuffer;
 import java.util.ConcurrentModificationException;
-import java.util.List;
 import java.util.Optional;
 
 import static java.lang.String.format;
@@ -37,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public User setStatus(long userId, boolean status) {
-    User toUpdate = userRepository.getById(userId);
+    User toUpdate = userRepository.findById(userId).get();
     if (toUpdate.getEnabled() == status) {
       throw new ConcurrentModificationException("Entity already modified");
     }
@@ -45,8 +46,8 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public List<User> listUsers() {
-    return userRepository.findAll();
+  public Page<User> listUsers(Pageable pageable) {
+    return userRepository.findAll(pageable);
   }
 
   @Override
@@ -70,5 +71,6 @@ public class UserServiceImpl implements UserService {
                     .encode(CharBuffer.wrap(createUserDto.getPassword())))
                 .enabled(true)
             .build());
+//    TODO remove password
   }
 }
