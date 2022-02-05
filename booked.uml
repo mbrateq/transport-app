@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.booked</OriginalElement>
+  <nodes>
+    <node x="0.0" y="22.0">869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.roles</node>
+    <node x="207.0" y="0.0">869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.users</node>
+    <node x="736.786858974359" y="183.0">869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.stops</node>
+    <node x="225.29166666666669" y="562.0">869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.booked</node>
+    <node x="41.16426282051282" y="172.0">869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.users_roles</node>
+    <node x="810.911858974359" y="357.0">869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.stops_lines</node>
+    <node x="310.786858974359" y="324.0">869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.trips</node>
+    <node x="599.911858974359" y="357.0">869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.stops_courses</node>
+    <node x="701.4142628205128" y="22.0">869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.lines</node>
+    <node x="263.2892628205128" y="172.0">869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.vehicles</node>
+    <node x="578.786858974359" y="172.0">869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.courses</node>
+    <node x="422.625" y="595.0">869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.users_trips</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.booked" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.trips" relationship="REFERENCES">
+      <point x="57.33333333333334" y="-82.0" />
+      <point x="368.625" y="536.0" />
+      <point x="434.286858974359" y="536.0" />
+      <point x="0.0" y="93.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.stops_lines" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.stops" relationship="REFERENCES">
+      <point x="-42.5" y="-60.0" />
+      <point x="853.411858974359" y="297.0" />
+      <point x="832.286858974359" y="297.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.vehicles" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.users" relationship="REFERENCES">
+      <point x="0.0" y="-49.0" />
+      <point x="333.2892628205128" y="146.0" />
+      <point x="298.5" y="146.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.users_trips" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.users" relationship="REFERENCES">
+      <point x="40.5" y="-49.0" />
+      <point x="544.125" y="536.0" />
+      <point x="568.286858974359" y="536.0" />
+      <point x="568.286858974359" y="146.0" />
+      <point x="298.5" y="146.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.booked" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.vehicles" relationship="REFERENCES">
+      <point x="0.0" y="-82.0" />
+      <point x="311.2916666666667" y="536.0" />
+      <point x="300.286858974359" y="536.0" />
+      <point x="300.286858974359" y="297.0" />
+      <point x="333.2892628205128" y="297.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.stops_lines" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.lines" relationship="REFERENCES">
+      <point x="42.5" y="-60.0" />
+      <point x="938.286858974359" y="146.0" />
+      <point x="789.9142628205128" y="146.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.trips" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.courses" relationship="REFERENCES">
+      <point x="61.75" y="-93.0" />
+      <point x="496.036858974359" y="297.0" />
+      <point x="647.786858974359" y="297.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.users_trips" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.trips" relationship="REFERENCES">
+      <point x="-40.5" y="-49.0" />
+      <point x="463.125" y="536.0" />
+      <point x="434.286858974359" y="536.0" />
+      <point x="0.0" y="93.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.booked" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.users" relationship="REFERENCES">
+      <point x="-57.33333333333334" y="-82.0" />
+      <point x="253.95833333333334" y="536.0" />
+      <point x="251.41426282051282" y="536.0" />
+      <point x="251.41426282051282" y="146.0" />
+      <point x="298.5" y="146.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.courses" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.lines" relationship="REFERENCES">
+      <point x="0.0" y="-49.0" />
+      <point x="647.786858974359" y="146.0" />
+      <point x="789.9142628205128" y="146.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.users_roles" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.roles" relationship="REFERENCES">
+      <point x="-41.0" y="-49.0" />
+      <point x="82.16426282051282" y="146.0" />
+      <point x="93.5" y="146.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.stops_courses" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.courses" relationship="REFERENCES">
+      <point x="-47.75" y="-60.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.users_roles" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.users" relationship="REFERENCES">
+      <point x="41.0" y="-49.0" />
+      <point x="164.16426282051282" y="146.0" />
+      <point x="298.5" y="146.0" />
+      <point x="0.0" y="60.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.stops_courses" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.stops" relationship="REFERENCES">
+      <point x="47.75" y="-60.0" />
+      <point x="743.161858974359" y="297.0" />
+      <point x="832.286858974359" y="297.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.trips" target="869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.vehicles" relationship="REFERENCES">
+      <point x="-61.75" y="-93.0" />
+      <point x="372.536858974359" y="297.0" />
+      <point x="333.2892628205128" y="297.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6380697050938338" showDependencies="false" x="490.5" y="363.0" />
+  <SelectedNodes>
+    <node>869e122d-03c1-41a8-8f31-61b40beec553.TABLE:compose-postgres.public.booked</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
