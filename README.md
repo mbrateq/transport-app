@@ -2,7 +2,7 @@
 ## Lokalne uruchomienie aplikacji
 ### Wymagania systemowe
 * Java 11
-* wolny port 8080
+* port 8080
 ####Instrukcja uruchomienie i weryfikacja działania
 Wykonywalny plk transport-app.jar znajduje się w ścieżce `/src/main/resources/releases/`
 Aplikacja uruchamiana jest poprzez wykonanie z lini komend w podanej ścieżce polecenia ```$ java -jar transport-app.jar```. W aplikacji dostępny jest publiczny endpoint testowy 
